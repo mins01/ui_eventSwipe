@@ -193,7 +193,7 @@
                 if(ta==evt.detail.swipeStartTarget && ta._swiping){
                     console.log(evt)
                     let x = 0;
-                    if(event.detail.deltaX<=100){
+                    if(event.detail.deltaX<=-100){
                         x = -1;
                     }else if(event.detail.deltaX>=100){
                         x = 1;
