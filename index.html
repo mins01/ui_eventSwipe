@@ -41,9 +41,9 @@
     <script>
         // eventSwipe.debug=true;
         // eventSwipe.debug=false;
-        // window.addEventListener('load',(evt)=>{
+        // window.addEventListener('load',function(evt){
             
-        //     document.addEventListener('wheel',(evt)=>{
+        //     document.addEventListener('wheel',function(evt){
         //         console.log(evt);
                 
         //     })
@@ -76,18 +76,18 @@
             <div class="" style="width:150px; min-width:1px;max-width:100%; height:50px;background-color: #ccc;pointer-events: none;"></div>
         </div>
         <script>
-            document.querySelector('#swipeX').addEventListener('touchstart',(evt)=>{
+            document.querySelector('#swipeX').addEventListener('touchstart',function(evt){
                 evt.preventDefault()
             })
-            document.querySelector('#swipeX').addEventListener('swipestart',(evt)=>{
+            document.querySelector('#swipeX').addEventListener('swipestart',function(evt){
                 evt.target.firstElementChild._rect = evt.target.firstElementChild.getBoundingClientRect();
                 evt.target.firstElementChild._swiping = true
             })
-            document.addEventListener('swipeend',(evt)=>{
+            document.addEventListener('swipeend',function(evt){
                 let ta = document.querySelector('#swipeX').firstElementChild
                 ta._swiping = false
             })
-            document.addEventListener('swipemove',(evt)=>{
+            document.addEventListener('swipemove',function(evt){
                 let ta = document.querySelector('#swipeX').firstElementChild
                 if(ta._swiping){
                     ta.style.width =  (ta._rect.width + evt.detail.deltaX)+'px';
@@ -99,19 +99,19 @@
             <div class="" style="width:100%; height:150px;min-height:1px;max-height:100%; background-color: #ccc;pointer-events: none;"></div>
         </div>
         <script>
-            document.querySelector('#swipeY').addEventListener('touchstart',(evt)=>{
+            document.querySelector('#swipeY').addEventListener('touchstart',function(evt){
                 evt.preventDefault()
             })
-            document.querySelector('#swipeY').addEventListener('swipestart',(evt)=>{
+            document.querySelector('#swipeY').addEventListener('swipestart',function(evt){
                 evt.target.firstElementChild._rect = evt.target.firstElementChild.getBoundingClientRect();
                 evt.target.firstElementChild._swiping = true
             })
-            document.addEventListener('swipeend',(evt)=>{
+            document.addEventListener('swipeend',function(evt){
                 
                 let ta = document.querySelector('#swipeY').firstElementChild
                 ta._swiping = false
             })
-            document.addEventListener('swipemove',(evt)=>{
+            document.addEventListener('swipemove',function(evt){
                 let ta = document.querySelector('#swipeY').firstElementChild
                 if(ta._swiping){
                     ta.style.height =  (ta._rect.height + evt.detail.deltaY)+'px';
@@ -122,17 +122,17 @@
         <div id="test_div" class="bg-danger text-center" style="height:300px; user-select: none; margin:50x " >event.type / event.detail.deltaX / event.deltail.deltaY</div>
         <script>
             let test_div = document.querySelector('#test_div');
-            test_div.addEventListener('touchstart',(evt)=>{
+            test_div.addEventListener('touchstart',function(evt){
                 evt.preventDefault()
             })
-            test_div.addEventListener('swipestart',(evt)=>{
-                evt.target.innerHTML = `${evt.type} / deltaX:${evt.detail.deltaX} / deltaY:${evt.detail.deltaY}`;
+            test_div.addEventListener('swipestart',function(evt){
+                evt.target.innerHTML = evt.type +' / deltaX:'+ evt.detail.deltaX+' / deltaY:'+ evt.detail.deltaY;
             })
-            test_div.addEventListener('swipemove',(evt)=>{
-                evt.target.innerHTML = `${evt.type} / deltaX:${evt.detail.deltaX} / deltaY:${evt.detail.deltaY}`;
+            test_div.addEventListener('swipemove',function(evt){
+                evt.target.innerHTML = evt.type +' / deltaX:'+ evt.detail.deltaX+' / deltaY:'+ evt.detail.deltaY;
             })
-            test_div.addEventListener('swipeend',(evt)=>{
-                evt.target.innerHTML = `${evt.type} / deltaX:${evt.detail.deltaX} / deltaY:${evt.detail.deltaY}`;
+            test_div.addEventListener('swipeend',function(evt){
+                evt.target.innerHTML = evt.type +' / deltaX:'+ evt.detail.deltaX+' / deltaY:'+ evt.detail.deltaY;
             })
         </script>
 
@@ -144,16 +144,16 @@
         <div>상하좌우 스와이프로 숫자를 증가시킬 수 있습니다.(swipemove 에서 처리)</div>
         
         <script>
-            document.querySelector('#swipeXY').addEventListener('touchstart',(evt)=>{
+            document.querySelector('#swipeXY').addEventListener('touchstart',function(evt){
                 evt.preventDefault()
             })
-            document.querySelector('#swipeXY').addEventListener('swipestart',(evt)=>{
+            document.querySelector('#swipeXY').addEventListener('swipestart',function(evt){
                 console.log(evt)
                 let ta = evt.target;
                 ta._swiping = true
                 ta._num = parseInt(ta.innerText);
             })
-            document.addEventListener('swipeend',(evt)=>{
+            document.addEventListener('swipeend',function(evt){
                 
                 let ta = document.querySelector('#swipeXY')
                 if(ta==evt.detail.swipeStartTarget && ta._swiping){
@@ -162,7 +162,7 @@
                 ta._swiping = false
                 
             })
-            document.addEventListener('swipemove',(evt)=>{
+            document.addEventListener('swipemove',function(evt){
                 let ta = document.querySelector('#swipeXY')
                 if(ta==evt.detail.swipeStartTarget && ta._swiping){
                     console.log(evt)
@@ -178,16 +178,16 @@
         <div>좌우 스와이프로 숫자를 증가시킬 수 있습니다.(swipeend 에서 처리)</div>
         
         <script>
-            document.querySelector('#swipeX2').addEventListener('touchstart',(evt)=>{
+            document.querySelector('#swipeX2').addEventListener('touchstart',function(evt){
                 evt.preventDefault()
             })
-            document.querySelector('#swipeX2').addEventListener('swipestart',(evt)=>{
+            document.querySelector('#swipeX2').addEventListener('swipestart',function(evt){
                 console.log(evt)
                 let ta = evt.target;
                 ta._swiping = true
                 ta._num = parseInt(ta.innerText);
             })
-            document.addEventListener('swipeend',(evt)=>{
+            document.addEventListener('swipeend',function(evt){
                 
                 let ta = document.querySelector('#swipeX2')
                 if(ta==evt.detail.swipeStartTarget && ta._swiping){
@@ -204,7 +204,7 @@
                 ta._swiping = false
                 
             })
-            document.addEventListener('swipemove',(evt)=>{
+            document.addEventListener('swipemove',function(evt){
                 let ta = document.querySelector('#swipeX2')
                 if(ta==evt.detail.swipeStartTarget && ta._swiping){
                     console.log(evt)
